@@ -1,4 +1,4 @@
-(function () {
+(function() {
   'use strict';
 
   angular
@@ -8,38 +8,35 @@
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('main', {
-        abstract: true,
+      .state('dashboard', {
         url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'vm',
+        views: {
+          '': {
+            templateUrl: 'app/dashboard/dashboard.html',
+            controller: 'DashboardController',
+            controllerAs: 'vm'
+          },
+          'count@dashboard': {
+            templateUrl: 'app/components/rating-table/rating-table.html'
+          },
+          'graph@dashboard': {
+            templateUrl: 'app/components/graph/graph.html'
+          },
+          'filters@dashboard': {
+            templateUrl: 'app/components/filters/filters.html'
+          },
+          'table@dashboard': {
+            templateUrl: 'app/components/feedback-table/feedback-table.html'
+          }
+        },
         resolve: {
-          feedbacks: function (feedback) {
+          feedbacks: function(feedback) {
             return feedback.get();
           }
         }
-      })
-      .state('main.dashboard', {
-        url: '/dashboard',
-        views: {
-          'count@dashboard' : {
-            template: 'app/components/dashboard/count.html'
-          },
-          'graph@dashboard' : {
-            template: 'app/components/dashboard/graph.html'
-          },
-          'filters' : {
-            template: 'app/components/dashboard/filters.html'
-          },
-          'table' : {
-            template: 'app/components/dashboard/table.html'
-          }
-        }
-      })
-    ;
+      });
 
-    $urlRouterProvider.otherwise('/dashboard');
+    $urlRouterProvider.otherwise('/');
   }
 
 })();

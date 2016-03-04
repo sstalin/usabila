@@ -1,0 +1,29 @@
+.dashboard {
+  color:#666;
+
+  input[type='checkbox']{
+    display: none;
+  }
+
+  .rating {
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #04A0C4;
+    color: #FFF;
+    text-align: center;
+    margin: 0 6px;
+  }
+
+  .rating.big {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .rating.small {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+
+}

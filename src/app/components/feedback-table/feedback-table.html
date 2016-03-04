@@ -1,0 +1,25 @@
+<table class="table table-hover feedback-table ">
+  <thead class="header">
+  <tr>
+    <th>Rating</th>
+    <th>Comment</th>
+    <th>Browser</th>
+    <th>Device</th>
+    <th>Platform</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="item in vm.items | filter:vm.btnFilter | filter:vm.searchText track by item.id">
+    <th scope="row"><span class="rating big">{{::item.rating}}</span></th>
+    <td><p>{{::item.comment}}</p></td>
+    <td class="text-center">
+      <p>{{::item.computed_browser.Browser}}</p>
+      <p>{{::item.computed_browser.Version}}</p>
+    </td>
+    <td><p>{{vm.device(item);}}</p></td>
+    <td><p>{{::item.computed_browser.Platform}}</p></td>
+  </tr>
+  </tbody>
+</table>
+
+

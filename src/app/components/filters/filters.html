@@ -1,0 +1,27 @@
+<section class="row filter-bar">
+  <div class="col-xs-12 col-md-2 filter-wrap">
+    <input class="search form-control" type="text" placeholder="Search here!" ng-model="vm.searchText"/>
+  </div>
+  <div class="col-xs-12 col-md-10 filter-wrap">
+    <label>
+      <input type="checkbox" ng-model="vm.filterBtn.one.value"/>
+      <span class="rating big" ng-class="{filterOn: vm.filterBtn.one.value, filterOff: !vm.filterBtn.one.value}">1</span>
+    </label>
+    <label>
+      <input type="checkbox" ng-model="vm.filterBtn.two.value"/>
+      <span class="rating big" ng-class="{filterOn: vm.filterBtn.two.value, filterOff: !vm.filterBtn.two.value}">2</span>
+    </label>
+    <label>
+      <input type="checkbox" ng-model="vm.filterBtn.three.value"/>
+      <span class="rating big" ng-class="{filterOn: vm.filterBtn.three.value, filterOff: !vm.filterBtn.three.value}">3</span>
+    </label>
+    <label>
+      <input type="checkbox" ng-model="vm.filterBtn.four.value"/>
+      <span class="rating big" ng-class="{filterOn: vm.filterBtn.four.value, filterOff: !vm.filterBtn.four.value}">4</span>
+    </label>
+    <label>
+      <input type="checkbox" ng-model="vm.filterBtn.five.value"/>
+      <span class="rating big" ng-class="{filterOn: vm.filterBtn.five.value, filterOff: !vm.filterBtn.five.value}">5</span>
+    </label>
+  </div>
+</section>
