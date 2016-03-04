@@ -6,10 +6,12 @@
   </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="r in [1,2,3,4,5] track by $index">
-    <th><span class="rating small">{{r}}</span></th>
-    <td></td>
-    <td></td>
+  <tr ng-repeat="r in vm.ratings track by r.id">
+    <th>
+      <span class="rating small">{{r.id}}</span>
+      <span>{{r.description}}</span>
+    </th>
+    <td>{{r.count}}</td>
   </tr>
   </tbody>
 </table>
