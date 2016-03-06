@@ -1,3 +1,4 @@
+/*global _ */
 (function() {
   'use strict';
 
@@ -6,7 +7,7 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController($scope, feedbacks, $log, device, ratings) {
+  function DashboardController(feedbacks, $log, device, ratings) {
     var vm = this;
 
     vm.items = feedbacks;
@@ -26,7 +27,7 @@
         four: {id: 4, matcher: {rating: 4}, value: true},
         five: {id: 5, matcher: {rating: 5}, value: true}
       };
-      $scope.feedbacks = feedbacks;
+      vm.feedbacks = feedbacks;
       vm.ratings = ratings.get(feedbacks);
       $log.debug('DashboardController ran');
     }

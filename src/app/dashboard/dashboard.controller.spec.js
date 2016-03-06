@@ -1,39 +1,27 @@
 (function() {
   'use strict';
 
-  describe('controllers', function(){
-    var vm;
-    var $timeout;
-    var toastr;
+  describe('DashboardController', function(){
+    var ctrl, ratings;
 
     beforeEach(module('usabila'));
-    beforeEach(inject(function(_$controller_, _$timeout_, _webDevTec_, _toastr_) {
-      spyOn(_webDevTec_, 'getTec').and.returnValue([{}, {}, {}, {}, {}]);
-      spyOn(_toastr_, 'info').and.callThrough();
-
-      vm = _$controller_('MainController');
-      $timeout = _$timeout_;
-      toastr = _toastr_;
+    beforeEach(inject(function(_$controller_) {
+      ratings = {
+        get: angular.noop
+      };
+      spyOn(ratings, 'get');
+      ctrl = _$controller_('DashboardController', {feedbacks: [], ratings: ratings});
     }));
 
-    it('should have a timestamp creation date', function() {
-      expect(vm.creationDate).toEqual(jasmine.any(Number));
+    it('should instantiate locals', function(){
+      expect(ctrl).toEqual(jasmine.any(Object));
+      expect(ctrl.feedbacks).toEqual(jasmine.any(Array));
+      expect(ctrl.filterBtn).toEqual(jasmine.any(Object))
     });
 
-    it('should define animate class after delaying timeout ', function() {
-      $timeout.flush();
-      expect(vm.classAnimation).toEqual('rubberBand');
+    it('should call ratings', function(){
+      expect(ratings.get).toHaveBeenCalled();
     });
 
-    it('should show a Toastr info and stop animation when invoke showToastr()', function() {
-      vm.showToastr();
-      expect(toastr.info).toHaveBeenCalled();
-      expect(vm.classAnimation).toEqual('');
-    });
-
-    it('should define more than 5 awesome things', function() {
-      expect(angular.isArray(vm.awesomeThings)).toBeTruthy();
-      expect(vm.awesomeThings.length === 5).toBeTruthy();
-    });
   });
 })();

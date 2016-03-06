@@ -1,3 +1,4 @@
+/*global _ d3*/
 (function() {
   'use strict';
 
@@ -5,9 +6,8 @@
     .module('usabila')
     .directive('chart', chart);
 
-
   /* @ngInject */
-  function chart() {
+  function chart($window) {
     var directive = {
       controller: ChartCtrl,
       link: link,
@@ -20,7 +20,7 @@
       scope.$watch('data', function(data) {
         if(data) {
           ctrl.createChart(element[0], data);
-          window.addEventListener('resize', function(){
+          $window.addEventListener('resize', function(){
             ctrl.reset(element);
             ctrl.createChart(element[0], data);
           })
@@ -31,7 +31,7 @@
 
 
   /* @ngInject */
-  function ChartCtrl() {
+  function ChartCtrl($window) {
     this.reset = function(el){
        el.find('svg').remove();
     };
@@ -84,7 +84,7 @@
       var h = el.clientHeight;
       var margin = {top: 20, right: 10, bottom: 20, left: 30};
 
-      if(!window.d3) return; // exit if no D3
+      if(!$window.d3) return; // exit if no D3
 
       var svg = d3.select(el).append('svg')
         .attr('width', w)

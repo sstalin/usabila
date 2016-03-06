@@ -4,6 +4,9 @@
     background-color: #576269;
     color: #fff;
     padding: 10px;
+    th{
+      border-bottom: 0;
+    }
   }
 
   @media (max-width: 400px) {
