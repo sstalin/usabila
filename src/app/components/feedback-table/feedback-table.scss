@@ -1,9 +1,23 @@
 .feedback-table {
-
+  table-layout: fixed;
   .header {
     background-color: #576269;
     color: #fff;
     padding: 10px;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 0.8em!important;
+    tbody {
+      th, td {
+        text-align: center;
+
+      }
+
+      td {
+        padding: 0!important;
+      }
+    }
   }
 }
 

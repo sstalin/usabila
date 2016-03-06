@@ -1,0 +1,30 @@
+.chart-container {
+  width: 100%;
+  min-height: 250px;
+  margin-bottom: 15px;
+  display: flex;
+  path {
+    fill: none;
+    stroke: #04A0C4;
+    stroke-width: 1;
+  }
+  .node-label{
+    fill:#04A0C4;
+  }
+  .axis.y, .axis.x {
+    line {
+      stroke: #999;
+      stroke-width: 1;
+    }
+    path {
+      fill: none;
+      stroke-width: 0;
+    }
+  }
+  .axis.y{
+    text{
+      fill:#FFF;
+    }
+  }
+
+}

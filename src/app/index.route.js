@@ -20,7 +20,7 @@
             templateUrl: 'app/components/rating-table/rating-table.html'
           },
           'graph@dashboard': {
-            templateUrl: 'app/components/graph/graph.html'
+            templateUrl: 'app/components/chart/chart.html'
           },
           'filters@dashboard': {
             templateUrl: 'app/components/filters/filters.html'
