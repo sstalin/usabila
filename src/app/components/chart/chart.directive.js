@@ -20,7 +20,7 @@
       scope.$watch('data', function(data) {
         if(data) {
           ctrl.createChart(element[0], data);
-          $window.addEventListener('resize', function(){
+          $window.addEventListener('resize', function() {
             ctrl.reset(element);
             ctrl.createChart(element[0], data);
           })
@@ -32,8 +32,8 @@
 
   /* @ngInject */
   function ChartCtrl($window) {
-    this.reset = function(el){
-       el.find('svg').remove();
+    this.reset = function(el) {
+      el.find('svg').remove();
     };
     this.lineData = function(data, nodes) {
       var min_date = d3.min(data, function(d) {
@@ -57,6 +57,7 @@
       };
 
       var bins = _.groupBy(data, iterator);
+      var pointer = min_date;
       var lineData = _.map(bins, function(bin) {
         var avgRating;
         var avgDate;
@@ -64,10 +65,12 @@
         var totalDate = 0;
         var count = bin.length;
         for(var i in bin) {
-          totalDate += parseInt(bin[i].creation_date);
+          // totalDate += parseInt(bin[i].creation_date);
           totalRating += parseInt(bin[i].rating);
         }
-        avgDate = Math.ceil(totalDate / count);
+        //avgDate = Math.ceil(totalDate / count);
+        avgDate = pointer + interval / 2;
+        pointer += interval;
         avgRating = totalRating / count;
         return {
           avgDate: avgDate,

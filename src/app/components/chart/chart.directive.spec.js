@@ -27,7 +27,7 @@
       expect(ctrl).toEqual(jasmine.any(Function));
     });
 
-    it('should have isolate scope object with instantiate members', function() {
+    it('should have isolate scope object with chart data', function() {
       expect(el.isolateScope().data).toEqual(jasmine.any(Object));
     });
 
