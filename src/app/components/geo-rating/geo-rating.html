@@ -1,0 +1,20 @@
+<table class="table table-hover geo-table">
+  <thead class="header">
+  <tr>
+    <th>Flag</th>
+    <th>Country Code</th>
+    <th>Average Rating</th>
+    <th>Count</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="r in vm.ratings track by $index">
+    <th>
+      <span class="flag" ng-class="r.country"></span>
+    </th>
+    <td>{{r.country.toUpperCase();}}</td>
+    <td>{{r.average | number:2}}</td>
+    <td>{{r.count}}</td>
+  </tr>
+  </tbody>
+</table>

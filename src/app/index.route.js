@@ -27,6 +27,11 @@
           },
           'table@dashboard': {
             templateUrl: 'app/components/feedback-table/feedback-table.html'
+          },
+          'geo@dashboard': {
+            templateUrl: 'app/components/geo-rating/geo-rating.html',
+            controller: 'GeoRatingController',
+            controllerAs: 'vm'
           }
         },
         resolve: {
