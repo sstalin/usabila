@@ -16,7 +16,7 @@
 
       $compile(el)(scope);
       scope.$digest();
-      ctrl = el.controller;
+      ctrl = el.controller('chart');
     }));
 
     it('should be compiled', function() {
@@ -24,7 +24,13 @@
     });
 
     it('should bind to controller ', function() {
-      expect(ctrl).toEqual(jasmine.any(Function));
+      expect(ctrl).toEqual(jasmine.any(Object));
+    });
+
+    it('should have methods defined', function(){
+      expect(ctrl.createChart).toEqual(jasmine.any(Function));
+      expect(ctrl.reset).toEqual(jasmine.any(Function));
+      expect(ctrl.lineData).toEqual(jasmine.any(Function));
     });
 
     it('should have isolate scope object with chart data', function() {

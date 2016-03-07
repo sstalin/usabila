@@ -62,7 +62,7 @@
         var avgRating;
         var avgDate;
         var totalRating = 0;
-        var totalDate = 0;
+        //var totalDate = 0;
         var count = bin.length;
         for(var i in bin) {
           // totalDate += parseInt(bin[i].creation_date);
