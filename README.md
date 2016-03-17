@@ -28,3 +28,6 @@ bower install
 ```
 gulp serve
 ```
+
+Demo link:
+http://sstalin.github.io/usabila/dist/#/
